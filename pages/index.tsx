@@ -3,6 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import Board from "../src/components/Boards";
 
 const Home: NextPage = () => {
   return (
@@ -42,49 +43,50 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <Link href="/brackets" passHref>
             <div className={styles.card}>
-              <h2>Brackets</h2>
-              <p>Saving money – is something we would all like.</p>
-              <p className={styles.arr}> &rarr;</p>
+              <Board
+                header={"Brackets"}
+                desc={"Saving money – is something we would all like."}
+              />
             </div>
           </Link>
 
           <div className={styles.card}>
-            <h2>Pictures In The Sky</h2>
-            <p>
-              In the last five to six years the FTA satellite receiver has
-              become an everyday household electronic device.
-            </p>
-            <p className={styles.arr}> &rarr;</p>
+            <Board
+              header={"Pictures In The Sky"}
+              desc={
+                "In the last five to six years the FTA satellite receiver has become an everyday household electronic device."
+              }
+            />
           </div>
 
           <div className={styles.card}>
-            <h2>How To Look Up</h2>
-            <p>Color is so powerful that it can persuade, motivate.</p>
-            <p className={styles.arr}> &rarr;</p>
+            <Board
+              header={"How To Look Up"}
+              desc={"Color is so powerful that it can persuade, motivate."}
+            />
           </div>
 
           <div className={styles.card}>
-            <h2>The Universe Through A Child S Eyes</h2>
-            <p>
-              When I was just starting 6th grade I got my first job. Paperboy!
-              Boy, was I excited.
-            </p>
-            <p className={styles.arr}> &rarr;</p>
+            <Board
+              header={"The Universe Through A Child S Eyes"}
+              desc={
+                "When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited."
+              }
+            />
           </div>
 
           <div className={styles.card}>
-            <h2>Astronomy Or Astrology</h2>
-            <p>Conversations can be a tricky business.</p>
-            <p className={styles.arr}> &rarr;</p>
+            <Board
+              header={"Astronomy Or Astrology"}
+              desc={"Conversations can be a tricky business."}
+            />
           </div>
 
           <div className={styles.card}>
-            <h2>Astronomy Or Astrology</h2>
-            <p>
-              When I was just starting 6th grade I got my first job. Paperboy!
-              Boy, was I excited.
-            </p>
-            <p className={styles.arr}> &rarr;</p>
+            <Board
+              header={"Astronomy Or Astrology"}
+              desc={"Conversations can be a tricky business."}
+            />
           </div>
         </div>
 
