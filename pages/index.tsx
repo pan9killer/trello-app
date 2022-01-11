@@ -1,27 +1,25 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Board from "../src/components/Boards";
+import HeadHTML from "../src/components/Head";
+import AddBoard from "../src/components/AddBoard";
+import { useSelector } from "react-redux";
+import { Boards } from "../src/interfaces/interface";
+import { RootState } from "../src/redux/store";
 
 const Home: NextPage = () => {
+  const boardState = useSelector<RootState, Boards>(
+    (state) => state.boardReducer
+  );
+  console.log(boardState);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Trello app on Next with Redux and TypeScript</title>
-        <meta
-          name="description"
-          content="Trello app on Next with Redux and TypeScript"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-          crossOrigin="anonymous"
-        ></link>
-      </Head>
+    <>
+      <HeadHTML
+        title={"Trello app on Next with Redux and TypeScript"}
+        description={"Trello app on Next with Redux and TypeScript"}
+      />
 
       <header className={styles.header}>
         <div className={styles.logo}>
@@ -41,60 +39,22 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.grid}>
-          <Link href="/brackets" passHref>
-            <div className={styles.card}>
-              <Board
-                header={"Brackets"}
-                desc={"Saving money – is something we would all like."}
-              />
-            </div>
-          </Link>
-
-          <div className={styles.card}>
-            <Board
-              header={"Pictures In The Sky"}
-              desc={
-                "In the last five to six years the FTA satellite receiver has become an everyday household electronic device."
-              }
-            />
-          </div>
-
-          <div className={styles.card}>
-            <Board
-              header={"How To Look Up"}
-              desc={"Color is so powerful that it can persuade, motivate."}
-            />
-          </div>
-
-          <div className={styles.card}>
-            <Board
-              header={"The Universe Through A Child S Eyes"}
-              desc={
-                "When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited."
-              }
-            />
-          </div>
-
-          <div className={styles.card}>
-            <Board
-              header={"Astronomy Or Astrology"}
-              desc={"Conversations can be a tricky business."}
-            />
-          </div>
-
-          <div className={styles.card}>
-            <Board
-              header={"Astronomy Or Astrology"}
-              desc={"Conversations can be a tricky business."}
-            />
-          </div>
+          {boardState.map((board) => {
+            return (
+              <div key={board.id}>
+                <Link href={board.href} passHref>
+                  <div className={styles.card}>
+                    <Board header={board.header} desc={board.desc} />
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
-        <div className={styles.new__board}>
-          <p>+ Add new board</p>
-        </div>
+        <AddBoard />
       </main>
-    </div>
+    </>
   );
 };
 
