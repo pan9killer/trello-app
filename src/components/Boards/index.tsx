@@ -1,7 +1,7 @@
 import styles from "../../../styles/Home.module.scss";
-import { Board } from "../../interfaces/interface";
+import { BoardBlock } from "../../interfaces/interface";
 
-const Board = ({ header, desc }: Board) => {
+const Board = ({ header, desc }: BoardBlock) => {
   return (
     <>
       <h2>{header}</h2>

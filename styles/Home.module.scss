@@ -93,26 +93,6 @@
   }
 }
 
-.new__board {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px dotted black;
-  border-radius: 10px;
-  width: 60%;
-  height: 500px;
-  margin-left: 20%;
-  margin-right: 20%;
-}
-
-.new__board p {
-  font-size: 2rem;
-  color: black;
-  opacity: 50%;
-}
-
 .brackets__grid {
   display: flex;
   flex-direction: row;
